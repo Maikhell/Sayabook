@@ -24,13 +24,14 @@
     font-weight: bold;
 }
 
-#loginbtn {
+#btn-log {
     background-color: #FF5757;
     border-color: #bd0d0d;
     color: #ffffff;
     font-weight: bold;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
 }
+
 
 #create-acc-btn {
     background-color: #FF5757;

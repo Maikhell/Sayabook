@@ -14,14 +14,75 @@
     border-bottom: #bd0d0d solid 2px;
 }
 
-.nav-link {
-    color: #4e4e4e;
+.sub-navbar-container {
+    margin-top: 10px;
+}
+
+#sub-navbar {
+    border-radius: 10px;
+    background-color: #FFA5A5;
+    border-bottom: #bd0d0d solid 1px;
+    width: 95%;
+    margin: auto;
+    text-shadow: 0px -1px 0 #FFA5A5, 1px -1px 0 #FF5757, -1px 1px 0 #C44141, -2px 1px 0 #C44141;
+}
+
+#sub-navbar .nav-link {
+    color: #ffffff;
     font-weight: bold;
+    border-left: 2px solid #ffffff;
+    border-left-width: 3px;
+    border-style: double;
+}
+
+#sub-navbar .nav-link:hover {
+    color: #FF5757;
+    font-weight: bold;
+    text-shadow: 0px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, -2px 1px 0 #ffffff;
+    font-size: 15px;
+}
+
+.dropdown-item {
+    color: #000000;
+    text-shadow: 1px 1px 0 #ffffff, 1px 1px 0 #ffffff, 1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
 }
 
 .nav-link :active {
     color: #ffffff;
     font-weight: bold;
+}
+
+.divider {
+    aspect-ratio: 1000/100;
+    background: no-repeat center;
+    background-size: cover;
+}
+
+.divider2 {
+    aspect-ratio: 1000/200;
+    background: no-repeat center;
+    background-size: cover;
+}
+
+.wave-1 {
+    background-image: url(../images/layered-p1.svg);
+}
+
+.wave-2 {
+    background-image: url(../images/layared-p2.svg);
+}
+
+#first-bg {
+    background-color: #FFE5E5;
+}
+
+.second-bg {
+    background-color: #FFE5E5;
+}
+
+#third-bg {
+    background-color: #C44141;
+
 }
 
 #logoutbtn {
@@ -79,4 +140,30 @@
     border-right: 0.3em solid transparent;
     border-bottom: 0;
     border-left: 0.3em solid transparent;
+}
+
+@media screen and (max-width: 540px) {
+    .nav-link {
+        color: #ffffff;
+        font-weight: bold;
+        border-left: none;
+        border-bottom: 2px solid #ffffff;
+        border-style: double;
+        border-bottom-width: 1px;
+
+    }
+}
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 1024px) {}
+
+@media screen and (min-width: 1280px) {}
+
+/*Viewport Sizes*/
+/*Custom Fonts Import*/
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../fonts/Vaseline\ Extra.ttf') format('truetype');
+
 }

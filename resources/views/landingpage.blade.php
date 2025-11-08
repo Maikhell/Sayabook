@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <!-- Navbar Content Starts -->
+
+    <!-- Navbar Contents Starts -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" id="top-logo">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img class="logo-brand" src="{{ asset('icons/Saybabook-logo.png') }}"
@@ -29,12 +30,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#third-bg">Contact</a>
                 </ul>
-                <form class="d-flex">
-                    <button class="btn btn-outline-success" id="loginbtn" type="button">Login</button>
-                </form>
+                <button type="button" id="btn-log" class="btn btn-outline-success d-flex" data-bs-toggle="modal"
+                    data-bs-target="#loginModal">
+                    Login
+                </button>
             </div>
         </div>
     </nav>
+
     <!-- Navbar Content Ends -->
     <!-- Header Contents Starts -->
     <section class="container-fluid" id="bg-container">
@@ -60,17 +63,14 @@
             <div class="col-sm-1" alt="free-spacing">
             </div>
             <div class="col-sm-5">
-                <form>
+                <!--Register -->
+                <form action="/register" method="POST">
+                    @csrf
                     <div class="container" id="outer-form-container">
                         <div class="form-sub-heading">
                             <h3 class="form-heading"> Sign Up For Free</h3>
                         </div>
                         <div class="inner-form-container">
-                            <div class="mb-3 row">
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="inputGmail" placeholder="">
-                                </div>
-                            </div>
                             <div class="mb-3 row">
                                 <div class="col-sm-12">
                                     <p class="Or-divider"><span>Or</span></p>
@@ -79,19 +79,19 @@
                             <div class="mb-3 row">
                                 <div class="col-sm-12">
                                     <label for="Email" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="InputEmail">
+                                    <input name="email" type="email" class="form-control" id="InputEmail">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <div class="col-sm-12">
-                                    <label for="InputUsername" class="form-label">Username</label>
-                                    <input type="username" class="form-control" id="ImportUsername">
+                                    <label for="Username" class="form-label">Username</label>
+                                    <input name="username" type="username" class="form-control" id="InputUsername">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <div class="col-sm-12">
                                     <label for="InputPassword" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="Password">
+                                    <input name="password" type="password" class="form-control" id="Password">
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -160,8 +160,8 @@
                 <a class="footers-link" href="#top">Login</a>
             </div>
             <div class="col-sm-4 p-2">
-                <a class="navbar-brand" href="#"><img class="logo-brand-footer" src="{{ asset('icons/Saybabook-logo.png') }}"
-                        alt=""></a>
+                <a class="navbar-brand" href="#"><img class="logo-brand-footer"
+                        src="{{ asset('icons/Saybabook-logo.png') }}" alt=""></a>
             </div>
             <div class="col-sm-4 p-2">
                 <h4>Contact Us</h4>
@@ -169,8 +169,44 @@
             </div>
         </div>
     </section>
-
-    <!-- Header Contents Starts -->
+    <!-- Header Contents Ends -->
+    <!-- Modal Contents Starts -->
+    <form action="/login" method="POST">
+        @csrf
+        <div class="modal fade" tabindex="-1" id="loginModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container" id="inner-modal-form">
+                            <div class="container-fluid" id="log-in-modal-form">
+                                <div class="mb-3 row">
+                                    <div class="col-sm-12">
+                                        <input name="loginusername" type="text" class="form-control" id="inputUsernameLogin"
+                                            placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <div class="col-sm-12">
+                                        <input name="loginpassword"type="password" class="form-control" id="inputPasswordLogin"
+                                            placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="btn-log" type="submit" class="btn btn-success">Login</button>
+                                <!-- Needed Submit Functionality Later-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Modal Contents Ends -->
     <script src="{{ asset('bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/login.js') }}"></script>
 </body>
