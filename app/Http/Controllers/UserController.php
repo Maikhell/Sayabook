@@ -16,13 +16,15 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $incomingFields = $request->validate([
-            'loginusername' => 'required', 
-            'loginpassword' => 'required'  
+            'loginusername' => 'required',
+            'loginpassword' => 'required'
         ]);
-        if (Auth::attempt([
-            'username' => $incomingFields['loginusername'], 
-            'password' => $incomingFields['loginpassword']
-        ])) {
+        if (
+            Auth::attempt([
+                'username' => $incomingFields['loginusername'],
+                'password' => $incomingFields['loginpassword']
+            ])
+        ) {
             $request->session()->regenerate();
 
             return redirect()->route('mybooks');
@@ -31,7 +33,7 @@ class UserController extends Controller
             'loginusername' => ['Invalid login credentials.'],
         ]);
     }
-    
+
     public function logout(Request $request)
     {
         auth()->logout();
@@ -43,6 +45,7 @@ class UserController extends Controller
     {
 
         $incomingFields = $request->validate([
+            'image' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
             'username' => ['required', 'min:3', 'max:10', 'unique:users,username'],
             'password' => 'required'

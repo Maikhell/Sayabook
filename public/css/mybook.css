@@ -53,7 +53,7 @@
 }
 
 .divider {
-    aspect-ratio: 1000/100;
+    aspect-ratio: 1000/40;
     background: no-repeat center;
     background-size: cover;
 }
@@ -119,15 +119,37 @@
 #category-selector-text:hover {
     background-color: #e03232;
 }
-.search-icon{
+
+.search-icon {
     width: 25px;
     height: 25px;
 
 }
-#toast-img{
-width: 20px;
-height: 20px;
+
+#toast-img {
+    width: 20px;
+    height: 20px;
 }
+
+.toast-header {
+    background-color: #FF5757;
+    color: #ffffff;
+}
+
+#card-container .card {
+    width: 14rem;
+    padding: 10px;
+    margin-left: 12px;
+    margin-top: 10px;
+}
+#pagination-container{
+    margin: 10px;
+}
+#card-outer-container {
+    width: 95%;
+    margin: auto;
+}
+
 #d-down-selector {
     width: 100%;
 }

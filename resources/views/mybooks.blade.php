@@ -13,7 +13,7 @@
 <body>
     @auth
         <!-- Navbar Content Starts -->
-        <nav class="navbar sticky-top navbar-expand-lg navbar-light" id="top-logo">
+        <nav class="navbar navbar-expand-lg navbar-light" id="top-logo">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><img class="logo-brand" src="{{asset('icons/Saybabook-logo.png') }}"
                         alt=""></a>
@@ -36,7 +36,7 @@
         <!-- Navbar Content Ends -->
         <!-- Navbar Menu Starts -->
         <section class="sub-navbar-container" id="first-bg">
-            <nav class="navbar navbar-expand-lg navbar-light" id="sub-navbar">
+            <nav class="navbar sticky-top navbar-expand-lg navbar-light" id="sub-navbar">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -172,6 +172,47 @@
         <div class="divider wave-1">
         </div>
         <section class="second-bg">
+            <div class="container-fluid" id="card-outer-container">
+                <div id="card-outer-container">
+                    <div class="row justify-content-start mx-auto" id="card-container">
+                        <div class="card" id="paginated-card">
+                            <img src="{{ asset('images/BC.png') }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of
+                                    the
+                                    card's content.</p>
+                                <a href="#" class="btn btn-primary">Details</a>
+                            </div>
+                        </div>
+                        <div class="card" id="paginated-card">
+                            <img src="{{ asset('images/BC.png') }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the
+                                    bulk of
+                                    the
+                                    card's content.</p>
+                                <a href="#" class="btn btn-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center" id="pagination-container">
+                <nav aria-label="Page navigation example" id="card-pagination">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#" data-page="prev">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#" data-page="1">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#" data-page="2">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#" data-page="3">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#" data-page="next">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
         </section>
         <!-- Navbar Menu Starts -->
     @else
@@ -179,6 +220,7 @@
     <script src="{{ asset('bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('js/search.js') }}"></script>
     <script src="{{ asset('js/showtoast.js') }}"></script>
+    <script src="{{ asset('js/pagination.js') }}"></script>
 </body>
 
 </html>

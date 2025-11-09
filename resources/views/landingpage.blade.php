@@ -94,18 +94,22 @@
                                     <input name="password" type="password" class="form-control" id="Password">
                                 </div>
                             </div>
-                            <div class="mb-3 row">
-                                <div class="col-sm-12" id="terms-text">
-                                    <p class="terms">By clicking Create account, I agree to the <a class="terms-link"
-                                            href="">Terms of Service</a> and
-                                        <a class="terms-link" href="">Privacy Policy</a>
-                                    </p>
-                                </div>
-                                <div class="mb-3" id="create-acc-container">
-                                    <button type="submit" class="btn" id="create-acc-btn">Create an Account</button>
-                                </div>
+
+                            <input type="hidden" name="image" value="{{ asset('icons/human-30.png') }}">
+
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="col-sm-12" id="terms-text">
+                                <p class="terms">By clicking Create account, I agree to the <a class="terms-link"
+                                        href="">Terms of Service</a> and
+                                    <a class="terms-link" href="">Privacy Policy</a>
+                                </p>
+                            </div>
+                            <div class="mb-3" id="create-acc-container">
+                                <button type="submit" class="btn" id="create-acc-btn">Create an Account</button>
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
     </section>
@@ -185,14 +189,14 @@
                             <div class="container-fluid" id="log-in-modal-form">
                                 <div class="mb-3 row">
                                     <div class="col-sm-12">
-                                        <input name="loginusername" type="text" class="form-control" id="inputUsernameLogin"
-                                            placeholder="Username">
+                                        <input name="loginusername" type="text" class="form-control"
+                                            id="inputUsernameLogin" placeholder="Username">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <div class="col-sm-12">
-                                        <input name="loginpassword"type="password" class="form-control" id="inputPasswordLogin"
-                                            placeholder="Password">
+                                        <input name="loginpassword" type="password" class="form-control"
+                                            id="inputPasswordLogin" placeholder="Password">
                                     </div>
                                 </div>
                             </div>
