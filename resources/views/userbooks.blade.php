@@ -216,93 +216,142 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add Books</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <form action="/addbooks" method="POST" enctype="multipart/form-data">
-                            @csrf <div class="row justify-content-center">
-                                <div class="col-md-4 col-sm-12 text-center">
-                                    <h4 class="mb-3">Book Cover</h4>
-                                    <img class="img-fluid border mb-3" style="max-height: 300px; object-fit: cover;"
-                                        src="{{ asset('icons/sampleprofile.jpg') }}" alt="Book Cover Preview"
-                                        id="bookCoverPreview">
-                                    <div class="mb-3">
-                                        <label for="bookCoverFile" class="btn btn-primary w-100">
-                                            <i class="fas fa-upload me-2"></i> Choose Book Cover
-                                        </label>
-                                        <input type="file" class="form-control d-none" id="bookCoverFile" name="book_cover"
-                                            accept="image/*">
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-sm-12">
-                                    <div class="mb-3">
-                                        <label for="bookTitle" class="form-label">Book Title</label>
-                                        <input type="text" class="form-control" id="bookTitle" name="book_title" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="bookAuthor" class="form-label">Book Author</label>
-                                        <input type="text" class="form-control" id="bookAuthor" name="book_author" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="bookDescription" class="form-label">Book Description</label>
-                                        <textarea class="form-control" id="bookDescription" name="book_description"
-                                            rows="3"></textarea>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <label for="bookStatus" class="form-label">Book Status</label>
-                                            <select class="form-select" id="bookStatus" name="book_status" required>
-                                                <option value="" disabled selected>Select Status</option>
-                                                <option value="reading">Currently Reading</option>
-                                                <option value="completed">Completed</option>
-                                                <option value="to_read">To Read</option>
-                                                <option value="dropped">Dropped</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="bookCategory" class="form-label">Book Category</label>
-                                            <select class="form-select" id="bookCategory" name="book_category">
-                                                <option value="" disabled selected>Select Category</option>
-                                                <option value="fiction">Fiction</option>
-                                                <option value="nonfiction">Non-Fiction</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="bookGenre" class="form-label">Book Genre</label>
-                                            <select class="form-select" id="bookGenre" name="book_genre">
-                                                <option value="" disabled selected>Select Genre</option>
-                                                <option value="fantasy">Fantasy</option>
-                                                <option value="scifi">Science Fiction</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="bookLink" class="form-label">Book's Online Link</label>
-                                        <input type="url" class="form-control" id="bookLink" name="book_online_link"
-                                            placeholder="https://example.com/book-page">
-                                    </div>
-                                    <input type="hidden" id="dateAdded" name="date_added" value="{{ date('Y-m-d') }}">
 
-                                    <div class="d-grid gap-2">
-                                        <button type="submit" class="btn btn-success btn-lg mt-3">Add Book to
-                                            Collection</button>
-                                    </div>
-                                </div>
+                    <form action="/addbooks" method="POST" enctype="multipart/form-data">
+                        @csrf
 
+                        <div class="modal-body">
+                            <div id="book-forms-container">
+                                {{-- The content here will be added dynamically --}}
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fas fa-check me-2"></i> Add Book(s) to Collection
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-lg" id="add-more-books-btn">
+                                <i class="fas fa-plus me-2"></i> Add More Books
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
+
         <!-- Navbar Menu Starts -->
     @else
     @endauth
+    <!-- Form Instance -->
+    <script>
+        window.currentDate = '{{ date('Y-m-d') }}';
+    </script>
+    <script id="book-form-template" type="text/template">
+        <div class="book-form-instance mb-5 p-4 border rounded shadow-sm" data-index="BOOK_INDEX">
+
+            <h4 class="mb-4 text-primary">Book #<span class="book-index-display">BOOK_DISPLAY_INDEX</span></h4>
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-4 col-sm-12 text-center">
+                    <h4 class="mb-3">Book Cover</h4>
+                    <img class="img-fluid border mb-3 bookCoverPreview" style="max-height: 300px; object-fit: cover;"
+                        src="{{ asset('icons/sampleprofile.jpg') }}" alt="Book Cover Preview">
+                    <div class="mb-3">
+                        <label for="bookCoverFile-BOOK_INDEX" class="btn btn-primary w-100">
+                            <i class="fas fa-upload me-2"></i> Choose Book Cover
+                        </label>
+                        <input type="file" class="form-control d-none bookCoverFile" 
+                            id="bookCoverFile-BOOK_INDEX" 
+                            name="books[BOOK_INDEX][book_cover]"
+                            accept="image/*">
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-sm-12">
+                    <div class="mb-3">
+                        <label for="bookTitle-BOOK_INDEX" class="form-label">Book Title</label>
+                        <input type="text" class="form-control" id="bookTitle-BOOK_INDEX" 
+                            name="books[BOOK_INDEX][book_title]" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bookAuthor-BOOK_INDEX" class="form-label">Book Author</label>
+                        <input type="text" class="form-control" id="bookAuthor-BOOK_INDEX" 
+                            name="books[BOOK_INDEX][book_author]" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bookDescription-BOOK_INDEX" class="form-label">Book Description</label>
+                        <textarea class="form-control" id="bookDescription-BOOK_INDEX" 
+                            name="books[BOOK_INDEX][book_description]" rows="3"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="bookStatus-BOOK_INDEX" class="form-label">Book Status</label>
+                            <select class="form-select" id="bookStatus-BOOK_INDEX" 
+                                name="books[BOOK_INDEX][book_status]" required>
+                                <option value="" disabled selected>Select Status</option>
+                                <option value="reading">Currently Reading</option>
+                                <option value="completed">Completed</option>
+                                <option value="to_read">To Read</option>
+                                <option value="dropped">Dropped</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="bookCategory-BOOK_INDEX" class="form-label">Book Category</label>
+                            <select class="form-select" id="bookCategory-BOOK_INDEX" 
+                                name="books[BOOK_INDEX][book_category]">
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="fiction">Fiction</option>
+                                <option value="nonfiction">Non-Fiction</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="bookGenre-BOOK_INDEX" class="form-label">Book Genre</label>
+                            <select class="form-select" id="bookGenre-BOOK_INDEX" 
+                                name="books[BOOK_INDEX][book_genre]">
+                                <option value="" disabled selected>Select Genre</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="scifi">Science Fiction</option>
+                            </select>
+                        </div>
+                         <div class="col-md-4 mb-3">
+                            <label for="bookPrivacy-BOOK_INDEX" class="form-label">Book Privacy</label>
+                            <select class="form-select" id="bookPrivacy-BOOK_INDEX" 
+                                name="books[BOOK_INDEX][book_privacy]">
+                                <option value="" disabled selected>Privacy Options</option>
+                                <option value="public">Public</option>
+                                <option value="private">Private</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="bookLink-BOOK_INDEX" class="form-label">Book's Online Link</label>
+                        <input type="url" class="form-control" id="bookLink-BOOK_INDEX" 
+                            name="books[BOOK_INDEX][book_online_link]"
+                            placeholder="https://example.com/book-page">
+                    </div>
+
+                    <input type="hidden" name="books[BOOK_INDEX][date_added]" value="BOOK_DATE_VALUE"> 
+
+                </div>
+            </div>
+
+            <div class="text-end">
+                 <button type="button" class="btn btn-outline-danger btn-sm remove-book-btn">Remove Book</button>
+            </div>
+
+        </div>
+    </script>
+
+    <script src="{{ asset('js/formInstances.js') }}"></script>
     <script src="{{ asset('bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('js/search.js') }}"></script>
     <script src="{{ asset('js/showtoast.js') }}"></script>

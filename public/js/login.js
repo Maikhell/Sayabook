@@ -3,11 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (button) {
         button.addEventListener("click", askUser);
-
-    } else {
-        console.error("Error: Button with #login-btn not found");
     }
-
     function askUser(event) {
         event.preventDefault();
         try {

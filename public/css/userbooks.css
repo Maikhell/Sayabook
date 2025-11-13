@@ -70,10 +70,12 @@
     background: no-repeat center;
     background-size: cover;
 }
-.add-image{
+
+.add-image {
     width: 100px;
     height: 100px;
 }
+
 .wave-1 {
     background-image: url(../images/layered-p1.svg);
 }
@@ -223,13 +225,34 @@
     text-shadow: 1px 2px 0 #ebaeae, 2px 2px 0 #ecb5b5, 2px 2px 0 #ff6868, 1px 1px 0 #f80000;
 }
 
-#pagination-container {
-    margin: 10px;
+.pagination-container {
+    margin-bottom: 0 !important;
+    z-index: 1050;
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    width: 100%;
+    padding: 10px 0;
 }
 
 #card-outer-container {
     width: 95%;
     margin: auto;
+}
+
+.modal-footer {
+    background-color: #fff;
+}
+
+.modal-body {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.modal-dialog.modal-fullscreen .modal-content {
+    background-color: #fff;
 }
 
 .user-name {

@@ -29,5 +29,5 @@ Route::post('/logout', [UserController::class, 'logout'])
     ->name('logout');
 Route::post(uri: '/login', action: [UserController::class, 'login'])
     ->name(name: 'login');
-Route::post('/addbooks', [BookController::class, 'addBooks'])
+Route::post('/addbooks', [BookController::class, 'store'])
     ->name('addbooks');
