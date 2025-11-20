@@ -27,7 +27,7 @@ class BookDataService
 
         // 2. Retrieve only the necessary header columns
         $userHeaderData = User::where('id', Auth::id())
-            ->select('id', 'username', 'image')
+            ->select('id', 'username', 'image', 'email' ,'password')
             ->first();
 
         // 3. Fallback check

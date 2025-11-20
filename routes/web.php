@@ -26,11 +26,11 @@ Route::get('/userbooks', [BookController::class, 'getUserBooks'])
     ->middleware(PreventBackHistory::class)
     ->name('userbooks');
 
-Route:: get('/editaccount', [ProfileController::class, 'showAccountDetails'])
+Route::get('/editaccount', [ProfileController::class, 'showAccountDetails'])
     ->middleware(Authenticate::class)
     ->middleware(PreventBackHistory::class)
     ->name('account');
-    
+
 //Post Routes
 Route::post('/register', [UserController::class, 'register'])
     ->name('register');
@@ -40,3 +40,5 @@ Route::post(uri: '/login', action: [UserController::class, 'login'])
     ->name(name: 'login');
 Route::post('/addbooks', [BookController::class, 'store'])
     ->name('addbooks');
+Route::post('/update', [UserController::class, 'updateUserDetails'])
+    ->name('updateUser');   

@@ -136,7 +136,7 @@ class BookController extends Controller
         $supplementaryHeaderData = $bookService->getSupplementaryHeaderData();
 
         // 4. Return the view with all necessary data
-        return view('userbooks', [
+        return view('userbooks', compact('user'),[
             'books' => $userBooks,
             'userHeaderData' => $userHeaderData, // The User model for header (id, username, image)
             'supplementaryHeader' => $supplementaryHeaderData // Any other data like counts

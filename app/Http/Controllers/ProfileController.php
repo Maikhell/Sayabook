@@ -46,9 +46,10 @@ class ProfileController extends Controller
         $publicBooks = $user->books()
             ->where('book_privacy', 'public')
             ->get();
-        return view('mybooks', compact('userHeaderData', 'publicBooks'));
+        return view('mybooks', compact('userHeaderData', 'publicBooks','user'));
     }
     public function showAccountDetails(){
+        $user = auth()->user();
         $userHeaderData = $this->getUserHeaderData();
         if($userHeaderData instanceof RedirectResponse){
             return $userHeaderData;
@@ -57,6 +58,6 @@ class ProfileController extends Controller
 
         $user = $userHeaderData;
 
-        return view('editaccount', compact('userHeaderData'));
+        return view('editaccount', compact('userHeaderData','user'));
     }
 }

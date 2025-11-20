@@ -20,7 +20,7 @@
                                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false"
                                     data-bs-popper-config='{"strategy":"fixed"}'>
-                                    <img src="{{ asset($userHeaderData->image) }}"
+                                    <img src="{{ asset('storage/' . $user->image) }}"
                                         alt="{{ $userHeaderData->username }}'s profile image" class="profile-image"
                                         width="50">
                                 </button>
