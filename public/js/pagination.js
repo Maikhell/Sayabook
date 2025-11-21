@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('#paginated-card');
     const paginationLinks = document.querySelectorAll('#card-pagination .page-link');
 
-    const cardsPerPage = 20;
+    const cardsPerPage = 15;
     let currentPage = 1;
 
     function displayPage(page) {

@@ -22,9 +22,28 @@
                     <div class="row justify-content-start mx-auto" id="card-container">
                         @foreach ($publicBooks as $publicBook)
                             <div class="card" id="paginated-card">
+                                <div class="row" id="small-card-btn">
+                                    <div class="col-3">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Add To Your Books"
+                                                src="{{ asset('icons/plus.png') }}"></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Archive This Book"
+                                                src="{{ asset('icons/book.png') }}"></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Favorite this Book"
+                                                src="{{ asset('icons/star.png') }}"></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Online Link of the Book"
+                                                src="{{ asset('icons/smallink.png') }}"></button>
+                                    </div>
+                                </div>
                                 <img src="{{ asset('storage/' . $publicBook->book_cover) }}" class="card-img-top"
                                     alt="No image loaded">
                                 <span class="card-title">{{ $publicBook->book_title }}</span>
+
                                 <div class="card-body">
                                     <a href="#" class="btn btn-primary">View Details</a>
                                 </div>
@@ -52,7 +71,7 @@
     @endauth
     <script src="{{ asset('bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('js/search.js') }}"></script>
-    <script src="{{ asset('js/showtoast.js') }}"></script>
+    <script src=" {{ asset('js/showtoast.js') }}"></script>
     <script src="{{ asset('js/pagination.js') }}"></script>
 </body>
 

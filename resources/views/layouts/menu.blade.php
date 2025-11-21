@@ -20,6 +20,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('userbooks') }}">My Books</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('userbooks') }}">Archive</a>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search">
                     <div class="input-group">

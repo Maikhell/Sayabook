@@ -22,7 +22,6 @@ class ProfileController extends Controller
 
     /**
      * Retrieves essential user data for the header or returns a redirect.
-     * This method now delegates to the Service class.
      * @return User|RedirectResponse
      */
     private function getUserHeaderData(): User|RedirectResponse

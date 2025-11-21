@@ -160,6 +160,28 @@
                     <div class="row justify-content-start mx-auto" id="card-container">
                         @foreach ($books as $book)
                             <div class="card" id="paginated-card">
+                                <div class="row" id="small-card-btn">
+                                    <div class="col-3">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Add To Your Books"
+                                                src="{{ asset('icons/plus.png') }}"></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Archive This Book"
+                                                src="{{ asset('icons/book.png') }}"></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Favorite this Book"
+                                                src="{{ asset('icons/star.png') }}"></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Online Link of the Book"
+                                                src="{{ asset('icons/smallink.png') }}"></button>
+                                    </div>
+                                </div>
                                 <img src="{{ asset('storage/' . $book->book_cover) }}" class="card-img-top"
                                     alt="No image loaded" id="card-image">
                                 <span class="card-title">{{ $book->book_title }}</span>

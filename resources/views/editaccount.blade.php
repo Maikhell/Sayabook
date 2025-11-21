@@ -39,8 +39,6 @@
                                                     </button>
                                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                         <li><a class="dropdown-item" href="{{ route('account') }}">Account</a></li>
-                                                        <li><a class="dropdown-item" href="#">Archive</a></li>
-                                                        <li>
                                                             <form action="/logout" method="POST" style="margin-bottom: 0;">
                                                                 @csrf
                                                                 <button class="dropdown-item" type="submit"
@@ -58,6 +56,7 @@
                                 </div>
                             </div>
                         </nav>
+                        @include('layouts.menu')
                         <div class="container" id="main-container">
                             <form action="/update" method="POST" enctype="multipart/form-data">
                                 @csrf

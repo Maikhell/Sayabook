@@ -25,9 +25,7 @@
                                         width="50">
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="{{ route('account') }}">Account</a></li>
-                                    <li><a class="dropdown-item" href="#">Archive</a></li>
-                                    <li>
+                                    <li><a class="dropdown-item" href="{{ route('account') }}">Account</a></li>
                                         <form action="/logout" method="POST" style="margin-bottom: 0;">
                                             @csrf
                                             <button class="dropdown-item" type="submit" style="color:red;">Logout</button>

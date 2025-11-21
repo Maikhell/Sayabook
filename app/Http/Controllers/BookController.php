@@ -163,4 +163,8 @@ class BookController extends Controller
             'userHeaderData' => $userHeaderData,
         ]);
     }
+
+    public function detailBookView(){
+        
+    }
 }

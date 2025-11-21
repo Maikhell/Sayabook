@@ -248,21 +248,40 @@
 }
 #card-container {
     height: 100%;
-
     margin-bottom: 10px;
 }
 .form-select:focus {
     border: #f02929;
-    box-shadow: 0 0 0 0.20rem rgb(230, 140, 140);
+    box-shadow: 0 0 0 0.2rem rgb(230, 140, 140);
 }
 .form-control:focus {
     border: #f02929;
-    box-shadow: 0 0 0 0.20rem rgb(230, 140, 140);
+    box-shadow: 0 0 0 0.2rem rgb(230, 140, 140);
 }
 #addBookCover {
     border: #bd0d0d;
     background-color: #f55b5b;
     width: 65%;
+}
+.small-ico-btn {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 11px;
+}
+#small-ico {
+    background-color: #ffffff;
+    border: none;
+}
+#small-card-btn {
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+#small-card-btn .btn-small {
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    padding: 0;
 }
 .modal-footer {
     background-color: #fff;
