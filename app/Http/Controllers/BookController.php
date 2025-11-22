@@ -73,18 +73,20 @@ class BookController extends Controller
         // 4. Loop through the *validated* data to save each book
         foreach ($booksData as $index => $book) {
 
-            $bookCoverFile = $request->file("books.{$index}.book_cover");
-            $coverPath = null;
+            // 1. Set the DEFAULT value immediately. 
+            $coverPath = 'images/default_cover.png';
 
-            if ($bookCoverFile) {
+            // 2. Check if file exists
+            if ($request->hasFile("books.{$index}.book_cover")) {
                 try {
-                    $coverPath = $bookCoverFile->store('covers', 'public');
+                    // 3. If file exists, OVERWRITE the default with the storage path
+                    $coverPath = $request->file("books.{$index}.book_cover")->store('covers', 'public');
                 } catch (\Exception $e) {
                     Log::error("File storage failed for Book Index {$index}: " . $e->getMessage());
                 }
             }
 
-            // 5. Create the Book record
+            // 4. Create the Book record
             $bookToCreate = array_merge($book, [
                 'book_cover' => $coverPath,
             ]);
@@ -125,46 +127,18 @@ class BookController extends Controller
         if ($userHeaderData instanceof RedirectResponse) {
             return $userHeaderData;
         }
-
         // Now we know $userHeaderData is a User model object
         $user = $userHeaderData;
-
         // 2. Get the book list from the authenticated user
         $userBooks = $user->books;
-
         // 3. Get supplementary header data (e.g., counts)
         $supplementaryHeaderData = $bookService->getSupplementaryHeaderData();
-
         // 4. Return the view with all necessary data
-        return view('userbooks', compact('user'),[
+        return view('userbooks', compact('user'), [
             'books' => $userBooks,
             'userHeaderData' => $userHeaderData, // The User model for header (id, username, image)
             'supplementaryHeader' => $supplementaryHeaderData // Any other data like counts
         ]);
     }
-    public function getAllPublicBooks(BookDataService $bookService): ViewContract|RedirectResponse
-    {
-        // Get user header data (or redirect if unauthenticated, depending on service)
-        $userHeaderData = $bookService->getAuthUserHeaderData();
 
-        // If the user is unauthenticated (and the service returned a redirect)
-        // we check again using Auth::check() to confirm they are a guest
-        if ($userHeaderData instanceof RedirectResponse && !Auth::check()) {
-            $userHeaderData = null; // Treat as guest access for the header data
-        }
-
-        // Retrieve all books marked as 'public' using the Eloquent Scope
-        $publicBooks = Books::withoutGlobalScopes()->public()->get();
-        // NOTE: If 'user' doesn't work, try Books::withoutGlobalScopes()->public()->get();
-        // If you don't know the scope name, use withoutGlobalScopes() to disable ALL of them.
-
-        return view('mybooks', [
-            'publicBooks' => $publicBooks,
-            'userHeaderData' => $userHeaderData,
-        ]);
-    }
-
-    public function detailBookView(){
-        
-    }
 }

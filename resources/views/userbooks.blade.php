@@ -323,8 +323,42 @@
                             <select class="form-select" id="bookGenre-BOOK_INDEX" 
                                 name="books[BOOK_INDEX][book_genre]">
                                 <option value="" disabled selected>Select Genre</option>
+                                <option value="action-adventure">Action & Adventure</option>
+                                <option value="art-photography">Art & Photography</option>
+                                <option value="autobiography">Autobiography</option>
+                                <option value="biography">Biography</option>
+                                <option value="business">Business & Economics</option>
+                                <option value="childrens">Children's</option>
+                                <option value="classics">Classics</option>
+                                <option value="comics-graphic-novels">Comics & Graphic Novels</option>
+                                <option value="contemporary">Contemporary Fiction</option>
+                                <option value="cookbook">Cookbook & Food</option>
+                                <option value="crime">Crime</option>
+                                <option value="drama">Drama</option>
+                                <option value="dystopian">Dystopian</option>
                                 <option value="fantasy">Fantasy</option>
+                                <option value="historical-fiction">Historical Fiction</option>
+                                <option value="history">History</option>
+                                <option value="horror">Horror</option>
+                                <option value="humor">Humor</option>
+                                <option value="literary-fiction">Literary Fiction</option>
+                                <option value="memoir">Memoir</option>
+                                <option value="mystery">Mystery</option>
+                                <option value="paranormal">Paranormal</option>
+                                <option value="philosophy">Philosophy</option>
+                                <option value="poetry">Poetry</option>
+                                <option value="religion-spirituality">Religion & Spirituality</option>
+                                <option value="romance">Romance</option>
                                 <option value="scifi">Science Fiction</option>
+                                <option value="science-nature">Science & Nature</option>
+                                <option value="self-help">Self-Help</option>
+                                <option value="short-stories">Short Stories</option>
+                                <option value="thriller-suspense">Thriller & Suspense</option>
+                                <option value="travel">Travel</option>
+                                <option value="true-crime">True Crime</option>
+                                <option value="western">Western</option>
+                                <option value="womens-fiction">Women's Fiction</option>
+                                <option value="young-adult">Young Adult (YA)</option>
                             </select>
                         </div>
                          <div class="col-md-4 mb-3">

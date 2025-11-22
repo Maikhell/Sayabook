@@ -43,7 +43,7 @@ class Books extends Model
      */
     public function scopePublic(Builder $query): Builder
     {
-        return $query->where('book_privacy', 'public');
+        return $query->where('book_privacy', 'public',);
     }
 
     // REMOVED: public function getAllPublicBooks() is removed and replaced by the scope.

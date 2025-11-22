@@ -23,27 +23,36 @@
                         @foreach ($publicBooks as $publicBook)
                             <div class="card" id="paginated-card">
                                 <div class="row" id="small-card-btn">
-                                    <div class="col-3">
-                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Add To Your Books"
+                                    <div class="col-2">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn-user"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                title="Added By:  {{ $publicBook->user->username}}"
+                                                src="{{ asset('storage/' . $publicBook->user->image) }}"></button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Add To Your Books"
                                                 src="{{ asset('icons/plus.png') }}"></button>
                                     </div>
-                                    <div class="col-3">
-                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Archive This Book"
+                                    <div class="col-2">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Archive This Book"
                                                 src="{{ asset('icons/book.png') }}"></button>
                                     </div>
-                                    <div class="col-3">
-                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Favorite this Book"
+                                    <div class="col-2">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Favorite this Book"
                                                 src="{{ asset('icons/star.png') }}"></button>
                                     </div>
-                                    <div class="col-3">
-                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Online Link of the Book"
+                                    <div class="col-2">
+                                        <button class="btn-small" id="small-ico"> <img class="small-ico-btn"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Online Link of the Book"
                                                 src="{{ asset('icons/smallink.png') }}"></button>
                                     </div>
                                 </div>
                                 <img src="{{ asset('storage/' . $publicBook->book_cover) }}" class="card-img-top"
-                                    alt="No image loaded">
+                                    alt="{{ asset('storage/' . 'images/default_cover.png') }}">
                                 <span class="card-title">{{ $publicBook->book_title }}</span>
-
                                 <div class="card-body">
                                     <a href="#" class="btn btn-primary">View Details</a>
                                 </div>

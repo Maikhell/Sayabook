@@ -221,6 +221,13 @@
     height: 20px;
     margin-bottom: 11px;
 }
+.small-ico-btn-user {
+    border-radius: 10px;
+    border: solid 2px #e03232;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 11px;
+}
 #small-ico {
     background-color: #ffffff;
     border: none;

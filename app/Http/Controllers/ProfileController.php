@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\User;
-use App\Services\BookDataService; // Import the service
+use App\Models\Books;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\View as ViewContract;
+use App\Services\BookDataService; // Import the service
 
 class ProfileController extends Controller
 {
@@ -42,9 +43,12 @@ class ProfileController extends Controller
         /** @var User $user */
         $user = $userHeaderData;
 
-        $publicBooks = $user->books()
-            ->where('book_privacy', 'public')
+        $publicBooks = Books::query()
+            ->withoutGlobalScopes()
+            ->public()
+            ->latest()
             ->get();
+
         return view('mybooks', compact('userHeaderData', 'publicBooks','user'));
     }
     public function showAccountDetails(){
